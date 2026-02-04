@@ -107,7 +107,7 @@ export const portfolioData = {
         },
         {
             id: 3,
-            title: "Task APP",
+            title: "CRUD App",
             description: "This project demonstrates data fetching from an API and CRUD operations using Vue JS, Tailwind and Pinia for state management. It also has filtering and local storage utilization to simulate a database and preserve Tasks on page reload.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/pinia-first-project/tree/main/pinia-tasks",
             liveDemo: "https://pinia-crud.netlify.app/",
@@ -116,7 +116,7 @@ export const portfolioData = {
         },
         {
             id: 4,
-            title: "Demo Shop",
+            title: "Simple E-Commerce Shop",
             description: "This project demonstrates dynamic routing and navigation, data fetching from a mock store API in a fully responive store using Nuxt JS and Tailwind.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/nuxt-store-app",
             liveDemo: "https://nuxtstoredemo.netlify.app/",
@@ -125,7 +125,7 @@ export const portfolioData = {
         },
         {
             id: 5,
-            title: "Weather APP",
+            title: "Weather App",
             description: "This project showcases a weather application built with VueJS and Tailwind, leveraging the Open Meteo API for weather forecasts and OpenStreetMap for location services. Users can search and select locations, view detailed hourly and daily weather forecasts — including temperature, wind speed, and direction — and save their favorite locations locally for quick access even after page reloads. The application features extensive data manipulation to combine and display information from both APIs properly and effectively to the user.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/Vue-Weather-APP/tree/main/Vue-weather-app",
             liveDemo: "https://weather-vue-demo.netlify.app/",
@@ -152,12 +152,21 @@ export const portfolioData = {
         },
         {
             id: 8,
-            title: "Datatable",
+            title: "Custom Datatable Sorting",
             description: "This project demonstrates data sorting in a datatable using Vue JS.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/Vue-Learning",
             liveDemo: "https://apostolos-eleftheriou.github.io/Vue-Learning/",
             featured: false,
             technologies: ["vue", "tailwind"]
+        },
+        {
+            id: 9,
+            title: "Portfolio",
+            description: "The portfolio source code written in Astro.",
+            sourceCode: "https://github.com/Apostolos-Eleftheriou/PortfolioV2",
+            liveDemo: "",
+            featured: false,
+            technologies: ["astro", "tailwind"]
         },
     ],
 
