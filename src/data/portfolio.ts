@@ -30,7 +30,7 @@ export const portfolioData = {
     skills: [
         {
             name: "React JS",
-            logo: "images/React.svg"
+            logo: "images/react.svg"
         },
         {
             name: "Vue JS",
@@ -38,15 +38,15 @@ export const portfolioData = {
         },
         {
             name: "Astro JS",
-            logo: "images/Astro.svg"
+            logo: "images/astro.svg"
         },
         {
             name: "Nuxt JS",
-            logo: "images/Nuxt_JS.svg"
+            logo: "images/nuxt.svg"
         },
         {
             name: "Ionic",
-            logo: "images/Ionic.svg"
+            logo: "images/ionic.svg"
         },
         {
             name: "Tailwind CSS",
@@ -54,20 +54,20 @@ export const portfolioData = {
         },
         {
             name: "Ant Design",
-            logo: "images/AntDesign.svg"
+            logo: "images/antdesign.svg"
         },
         {
             name: "Bootstrap",
-            logo: "images/Bootstrap.svg",
+            logo: "images/bootstrap.svg",
             brightnessFilter: true
         },
         {
             name: "Redux",
-            logo: "images/Redux.svg"
+            logo: "images/redux.svg"
         },
         {
             name: "Git",
-            logo: "images/Git.svg"
+            logo: "images/git.svg"
         },
     ],
 
@@ -103,7 +103,7 @@ export const portfolioData = {
             sourceCode: "https://github.com/Apostolos-Eleftheriou/jason_music",
             liveDemo: "https://apostolos-eleftheriou.github.io/jason_music/",
             featured: true,
-            technologies: ["JavaScript"]
+            technologies: ["javascript"]
         },
         {
             id: 3,
@@ -121,7 +121,7 @@ export const portfolioData = {
             sourceCode: "https://github.com/Apostolos-Eleftheriou/nuxt-store-app",
             liveDemo: "https://nuxtstoredemo.netlify.app/",
             featured: false,
-            technologies: ["Nuxt_JS", "tailwind"]
+            technologies: ["nuxt", "tailwind"]
         },
         {
             id: 5,
@@ -139,7 +139,7 @@ export const portfolioData = {
             sourceCode: "https://github.com/Apostolos-Eleftheriou/rock-paper-scissors",
             liveDemo: "https://apostolos-eleftheriou.github.io/rock-paper-scissors/",
             featured: false,
-            technologies: ["JavaScript"]
+            technologies: ["javascript"]
         },
         {
             id: 7,
@@ -148,7 +148,7 @@ export const portfolioData = {
             sourceCode: "https://github.com/Apostolos-Eleftheriou/etch-a-sketch",
             liveDemo: "https://apostolos-eleftheriou.github.io/etch-a-sketch/",
             featured: false,
-            technologies: ["JavaScript"]
+            technologies: ["javascript"]
         },
         {
             id: 8,
