@@ -70,18 +70,12 @@ import { portfolioData } from "../data/portfolio";
     </div>
 </header>
 
-<script define:vars={{ socialItems: portfolioData.socials }}>
+<script define:vars={{ portfolioData }}>
     const burger = document.getElementById("burger-menu");
     const navMenu = document.getElementById("nav-menu");
     const navLinks = navMenu?.querySelectorAll("a:not([target])");
     const themeBtns = document.querySelectorAll(".theme-btn");
-    const themeData = {
-        green: "#67b77d",
-        purple: "#7d67b7",
-        blue: "#677db7",
-        yellow: "#ffdf67",
-        default: "#f85f73",
-    };
+
     burger?.addEventListener("click", () => {
         const isOpen = navMenu.classList.contains("menu-open");
 
@@ -117,7 +111,8 @@ import { portfolioData } from "../data/portfolio";
 
             document.documentElement.style.setProperty(
                 "--primary-color",
-                themeData[theme] || "#f85f73",
+                portfolioData.theme.colors.find((t) => t.name === theme)
+                    ?.value || "#f85f73",
             );
             localStorage.setItem("theme", theme);
         });
@@ -127,6 +122,7 @@ import { portfolioData } from "../data/portfolio";
 
     document.documentElement.style.setProperty(
         "--primary-color",
-        themeData[savedTheme],
+        portfolioData.theme.colors.find((t) => t.name === savedTheme)?.value ||
+            "#f85f73",
     );
 </script>

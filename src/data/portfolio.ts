@@ -1,8 +1,12 @@
 export const portfolioData = {
-    name: "Apostolis",
+    name: "Apostolis Eleftheriou",
     title: "Frontend Engineer",
+    company: "Eurobank",
     tagline: "I build fast, modern, responsive web applications that deliver outstanding user experiences and drive business results. With a focus on clean architecture and scalable solutions, I bridge the gap between product vision and technical execution.",
     email: "eleftheriou.apostolis@gmail.com",
+    resumeLink: "https://drive.google.com/file/d/1bE6YL9Xw8IRo44NFebmnVn4dbG6LiDAT/view?usp=sharing",
+    personalImage: "images/me.jpeg",
+    typeTextPhrases: ["Apostolis.", "a Frontend Engineer."],
 
     socials: [
         {
@@ -70,14 +74,6 @@ export const portfolioData = {
             logo: "images/git.svg"
         },
     ],
-
-    // bio: [
-    //     "I'm 31 years old, my love for computers and technology goes all the way back to when I was 9 years old. That was when I first saw a VT220 (a computer terminal which had only a screen and a keyboard). I was but a little kid stroking the keyboard pretending to be coding. That is my first memory as a child and quite frankly what later in my life proved to be what I actually love doing.",
-    //     "Fast forward to 2021, after working in various industries, I decided to improve my life by embarking on a journey with a curriculum called The Odin Project. Through this program, I enhanced my problem-solving skills and learned programming concepts, changing how I think and approach problems. As a fast learner, I quickly grasped these concepts. I am committed to this never-ending journey of knowledge and strive to improve myself and my skills every day.",
-    //     "I am deeply thankful for all the opportunities I've been given, and for the incredible support and guidance from so many great people.",
-    //     "I've learned and utilized all these amazing technologies along the way, to make software that grows and scales bussinesses, that in turn brings revenue and recogintion in their field.",
-    //     "And as my story continues, I am living my dream of being a Software Developer..."
-    // ],
 
     bio: [
         "My story with tech started when I was nine, thanks to a chunky VT220 terminal. I’d just tap its keyboard, pretending to code, not really knowing what I was doing, but i was completely hooked. That quiet, early spark ended up telling my whole story.",

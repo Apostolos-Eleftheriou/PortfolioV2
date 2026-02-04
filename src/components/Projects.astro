@@ -42,17 +42,6 @@ import SectionTitle from "./SectionTitle.astro";
         });
     });
 
-    // Scale animation on scroll
-    // const scaleObserver = new IntersectionObserver((entries) => {
-    //     entries.forEach((entry) => {
-    //         if (entry.isIntersecting) {
-    //             if (!entry.target.classList.contains("scale-animation-after")) {
-    //                 entry.target.classList.add("scale-animation-after");
-    //                 entry.target.style.transform = "scale(1)";
-    //             }
-    //         }
-    //     });
-    // });
     const scaleObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             const target = entry.target;

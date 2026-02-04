@@ -48,14 +48,18 @@ const { project } = Astro.props;
     <div
         class="flex flex-wrap gap-4 w-full justify-between border-t border-[#3d3d3d] pt-4"
     >
-        <a
-            href={project.sourceCode}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary"
-        >
-            Source Code
-        </a>
+        {
+            project.sourceCode && (
+                <a
+                    href={project.sourceCode}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary"
+                >
+                    Source Code
+                </a>
+            )
+        }
         {
             project.liveDemo && (
                 <a

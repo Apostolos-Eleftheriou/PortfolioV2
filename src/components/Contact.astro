@@ -4,34 +4,34 @@ import { portfolioData } from "../data/portfolio";
 
 <section id="contact" class="py-16 px-4 relative overflow-hidden z-10">
     <div
-        class="bg-[#252525] rounded-lg p-8 text-center shadow-2xl max-w-[400px] m-auto"
+        class="bg-[#252525] rounded-lg p-8 text-center shadow-2xl custom-400 m-auto"
     >
         <div class="flex justify-center shrink-0 mb-6">
             <img
-                src="images/me.jpeg"
-                alt="Apostolis Eleftheriou"
-                class="rounded-full shadow-2xl w-36"
+                src={portfolioData.personalImage}
+                alt={portfolioData.name}
+                class="rounded-full shadow-2xl w-36 h-36 object-cover"
                 loading="lazy"
             />
         </div>
         <p class="mb-2 text-xl" style="font-family: 'Poppins', sans-serif;">
-            Apostolis Eleftheriou
+            {portfolioData.name}
         </p>
         <p
             class="text-md font-semibold mb-8 text-[#646464]"
             style="font-family: 'Poppins', sans-serif;"
         >
-            Frontend Engineer @Eurobank
+            {portfolioData.title} @{portfolioData.company}
         </p>
         <p
+            id="contactBtn"
             class="inline-block px-8 py-4 rounded-lg font-bold text-lg italic cme cursor-pointer"
-            onclick="this.textContent='eleftheriou.apostolis@gmail.com'; this.onclick=null;this.classList.remove('cursor-pointer');"
         >
             Let's get in touch!
         </p>
         <p>
             <a
-                href="https://drive.google.com/file/d/1bE6YL9Xw8IRo44NFebmnVn4dbG6LiDAT/view?usp=sharing"
+                href={portfolioData.resumeLink}
                 target="_blank"
                 class="inline-block px-8 py-4 rounded-lg font-bold text-lg italic cursor-pointer text-right hover:text-gray-400"
                 style="font-family:'Poppins', sans-serif"
@@ -71,19 +71,18 @@ import { portfolioData } from "../data/portfolio";
     </div>
 </section>
 
-<script>
-    document
-        .querySelectorAll<HTMLElement>(
-            ".fa-github, .fa-facebook, .fa-instagram, .fa-linkedin",
-        )
-        .forEach((icon) => {
-            icon.parentElement?.addEventListener("mouseenter", function () {
-                icon.style.transform = "rotate(360deg) scale(1.25)";
-            });
-            icon.parentElement?.addEventListener("mouseleave", function () {
-                icon.style.transform = "rotate(0deg) scale(1)";
-            });
-        });
+<script define:vars={{ portfolioData }}>
+    const email = portfolioData.email;
+    const btn = document.getElementById("contactBtn");
+
+    function handleClick() {
+        btn.textContent = email;
+        btn.classList.remove("cursor-pointer");
+        setTimeout(() => {
+            btn.removeEventListener("click", handleClick);
+        }, 300);
+    }
+    btn.addEventListener("click", handleClick);
 </script>
 
 <style>
