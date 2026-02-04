@@ -1,0 +1,23 @@
+---
+import { portfolioData } from "../data/portfolio";
+---
+
+<footer
+    id="contact"
+    class="text-white text-center p-4 flex flex-col md:flex-row justify-center items-center gap-8 flex-wrap"
+>
+    <div class="flex flex-col">
+        <p class="font-semibold text-sm">
+            Copyright © <span id="year"></span>
+            {portfolioData.name}
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date()
+        .getFullYear()
+        .toString();
+</script>
+
+<style></style>

@@ -1,0 +1,53 @@
+---
+import { portfolioData } from "../data/portfolio";
+import SkillCard from "./SkillCard.astro";
+import SectionTitle from "./SectionTitle.astro";
+---
+
+<section id="skills" class="px-4">
+    <div class="container mx-auto">
+        <SectionTitle title="What I'm working with" />
+
+        <div
+            class="flex flex-wrap justify-center items-center gap-6 mt-8 max-w-6xl mx-auto"
+        >
+            {portfolioData.skills.map((skill) => <SkillCard skill={skill} />)}
+        </div>
+    </div>
+</section>
+
+<script>
+    // Intersection Observer for fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in-visible");
+            }
+        });
+    });
+
+    document.querySelectorAll(".skill-card").forEach((card) => {
+        card.classList.add("fade-in");
+        observer.observe(card);
+    });
+
+    // Scale animation on scroll
+    const scaleObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+
+                if (el instanceof HTMLElement) {
+                    if (!el.classList.contains("scale-animation-after")) {
+                        el.classList.add("scale-animation-after");
+                        el.style.transform = "scale(1)";
+                    }
+                }
+            }
+        });
+    });
+
+    document.querySelectorAll(".scale-animation-before").forEach((card) => {
+        scaleObserver.observe(card);
+    });
+</script>

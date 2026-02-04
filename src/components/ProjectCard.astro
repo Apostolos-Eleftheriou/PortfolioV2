@@ -1,0 +1,98 @@
+---
+interface Props {
+    project: {
+        id: number;
+        title: string;
+        description: string;
+        sourceCode: string;
+        liveDemo: string;
+        featured?: boolean;
+        technologies: string[];
+    };
+}
+
+const { project } = Astro.props;
+---
+
+<div
+    class="card-project group relative overflow-hidden"
+    style="transform: scale(0.7); transition: transform 0.5s ease-in-out;"
+>
+    <div class="mb-4 flex justify-between items-centers w-full">
+        <h3
+            class="project-title text-2xl font-bold italic"
+            style="font-family: 'Varela Round', sans-serif; color: var(--primary-color)"
+        >
+            {project.title}
+        </h3>
+        <span class="font-normal">
+            {
+                project?.technologies?.map((tech) => (
+                    <img
+                        src={`/images/${tech}.svg`}
+                        alt={tech}
+                        class="w-8 h-8 object-contain inline-block mx-1"
+                        loading="lazy"
+                    />
+                ))
+            }
+        </span>
+    </div>
+
+    <p
+        class="project-description text-base font-semibold italic mb-6 text-gray-200"
+        style="font-family: 'Poppins', sans-serif;"
+    >
+        {project.description}
+    </p>
+    <div
+        class="flex flex-wrap gap-4 w-full justify-between border-t border-[#3d3d3d] pt-4"
+    >
+        <a
+            href={project.sourceCode}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+        >
+            Source Code
+        </a>
+        {
+            project.liveDemo && (
+                <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary"
+                >
+                    Live Demo
+                </a>
+            )
+        }
+    </div>
+</div>
+
+<style>
+    .scale-animation-before {
+        transform: scale(0.7);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .scale-animation-after {
+        transform: scale(1);
+        transform-origin: center;
+    }
+
+    .hover-effect {
+        aspect-ratio: 1 / 1;
+        bottom: 90%;
+        right: 15%;
+        min-height: 5%;
+        min-width: 5%;
+        background: var(--primary-color);
+        filter: brightness(0.8);
+    }
+
+    .group:hover .hover-effect {
+        transform: scale(50) !important;
+    }
+</style>

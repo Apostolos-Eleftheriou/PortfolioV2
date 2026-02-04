@@ -1,0 +1,102 @@
+---
+// ts-ignore
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+    title?: string;
+}
+
+const { title = "My Portfolio" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Apostolis Eleftheriou - Frontend Engineer Portfolio"
+        />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Alegreya:ital@1&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome for icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="icon" href="/favicon.svg" />
+        <title>{title}</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+        </style>
+    </head>
+    <body>
+        <Header />
+        <main class="min-h-screen">
+            <slot />
+        </main>
+        <Footer />
+        <!-- Go to top button -->
+        <a
+            href="#"
+            class="fixed bottom-6 right-10 w-10 h-10 flex justify-center items-center rounded-full text-2xl transition-all duration-300 hover:scale-105 z-40"
+            id="go-top-btn"
+            style="background-color: var(--primary-color); color: #1d1d1d; opacity: 0; pointer-events: none;"
+            title="Go to top"
+        >
+            <i class="fas fa-angle-double-up"></i>
+        </a>
+
+        <script>
+            const goTopBtn = document.getElementById("go-top-btn");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 300) {
+                    goTopBtn.style.opacity = "1";
+                    goTopBtn.style.pointerEvents = "auto";
+                } else {
+                    goTopBtn.style.opacity = "0";
+                    goTopBtn.style.pointerEvents = "none";
+                }
+            });
+
+            goTopBtn?.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        </script>
+    </body>
+</html>

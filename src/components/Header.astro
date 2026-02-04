@@ -1,0 +1,132 @@
+---
+import { portfolioData } from "../data/portfolio";
+---
+
+<header>
+    <div class="header-logo">Portfolio</div>
+
+    <button id="burger-menu" aria-label="Toggle navigation menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </button>
+
+    <nav id="nav-menu">
+        <a href="#skills">What I'm working with</a>
+        <a href="#about">About me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact me</a>
+
+        <div
+            class="flex justify-center gap-5 theme py-3"
+            style=" border-top: 1px solid #555; border-bottom: 1px solid #555;"
+        >
+            <div class="font-bold text-center">Themes:</div>
+            <div class="flex gap-2 justify-center">
+                {
+                    portfolioData.theme.colors.map((theme) => (
+                        <button
+                            class="theme-btn"
+                            data-theme={theme.name}
+                            style={`background-color: ${theme.value}`}
+                            title={theme.name}
+                            aria-label={`Set theme to ${theme.name}`}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+
+        <div class="lg:hidden flex gap-3.5 justify-center">
+            {
+                portfolioData.socials.map((social) => (
+                    <a
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="font-size: 20px;"
+                        title={social.name}
+                    >
+                        <i class={`fab fa-${social.icon}`} />
+                    </a>
+                ))
+            }
+        </div>
+    </nav>
+
+    <div id="desktop-socials">
+        {
+            portfolioData.socials.map((social) => (
+                <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.name}
+                >
+                    <i class={`fab fa-${social.icon}`} />
+                </a>
+            ))
+        }
+    </div>
+</header>
+
+<script define:vars={{ socialItems: portfolioData.socials }}>
+    const burger = document.getElementById("burger-menu");
+    const navMenu = document.getElementById("nav-menu");
+    const navLinks = navMenu?.querySelectorAll("a:not([target])");
+    const themeBtns = document.querySelectorAll(".theme-btn");
+    const themeData = {
+        green: "#67b77d",
+        purple: "#7d67b7",
+        blue: "#677db7",
+        yellow: "#ffdf67",
+        default: "#f85f73",
+    };
+    burger?.addEventListener("click", () => {
+        const isOpen = navMenu.classList.contains("menu-open");
+
+        burger.classList.toggle("toggle");
+
+        if (isOpen) {
+            navMenu.classList.add("no-transition");
+            navMenu.classList.remove("menu-open");
+            navMenu.offsetHeight;
+            navMenu.classList.remove("no-transition");
+        } else {
+            navMenu.classList.add("menu-open");
+        }
+    });
+
+    navLinks?.forEach((link) => {
+        link.addEventListener("click", () => {
+            burger?.classList.remove("toggle");
+            navMenu?.classList.remove("menu-open");
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!navMenu?.contains(e.target) && !burger?.contains(e.target)) {
+            burger?.classList.remove("toggle");
+            navMenu?.classList.remove("menu-open");
+        }
+    });
+
+    themeBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const theme = btn.getAttribute("data-theme");
+
+            document.documentElement.style.setProperty(
+                "--primary-color",
+                themeData[theme] || "#f85f73",
+            );
+            localStorage.setItem("theme", theme);
+        });
+    });
+
+    const savedTheme = localStorage.getItem("theme") || "default";
+
+    document.documentElement.style.setProperty(
+        "--primary-color",
+        themeData[savedTheme],
+    );
+</script>

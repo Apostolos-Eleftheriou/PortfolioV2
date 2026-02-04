@@ -1,0 +1,90 @@
+---
+import { portfolioData } from "../data/portfolio";
+import ProjectCard from "./ProjectCard.astro";
+import SectionTitle from "./SectionTitle.astro";
+---
+
+<section id="projects" class="py-16 px-4">
+    <div class="container mx-auto">
+        <SectionTitle title="A Few Fun Projects" />
+
+        <div
+            class="flex flex-wrap justify-center items-stretch mt-12 max-w-7xl mx-auto gap-3"
+        >
+            <div class="flex justify-start items-center gap-3 flex-col">
+                {
+                    portfolioData.projects
+                        .slice(0, 4)
+                        .map((project) => <ProjectCard project={project} />)
+                }
+            </div>
+
+            <div class="flex justify-start items-center gap-3 flex-col">
+                {
+                    portfolioData.projects
+                        .slice(4)
+                        .map((project) => <ProjectCard project={project} />)
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Fade in animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("fade-in-visible");
+            } else {
+                entry.target.classList.remove("fade-in-visible");
+            }
+        });
+    });
+
+    // Scale animation on scroll
+    // const scaleObserver = new IntersectionObserver((entries) => {
+    //     entries.forEach((entry) => {
+    //         if (entry.isIntersecting) {
+    //             if (!entry.target.classList.contains("scale-animation-after")) {
+    //                 entry.target.classList.add("scale-animation-after");
+    //                 entry.target.style.transform = "scale(1)";
+    //             }
+    //         }
+    //     });
+    // });
+    const scaleObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const target = entry.target;
+
+            if (entry.isIntersecting && target instanceof HTMLElement) {
+                if (!target.classList.contains("scale-animation-after")) {
+                    target.classList.add("scale-animation-after");
+                    target.style.transform = "scale(1)";
+                }
+            }
+        });
+    });
+
+    document.querySelectorAll(".card-project").forEach((card) => {
+        card.classList.add("fade-in");
+        observer.observe(card);
+        scaleObserver.observe(card);
+    });
+</script>
+
+<style>
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+    }
+
+    .fade-in-visible {
+        opacity: 1 !important;
+    }
+
+    .scale-animation-after {
+        transform: scale(1) !important;
+        transform-origin: center;
+    }
+</style>
