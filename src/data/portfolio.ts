@@ -30,44 +30,44 @@ export const portfolioData = {
     skills: [
         {
             name: "React JS",
-            logo: "/images/React.svg"
+            logo: "images/React.svg"
         },
         {
             name: "Vue JS",
-            logo: "/images/vue.svg"
+            logo: "images/vue.svg"
         },
         {
             name: "Astro JS",
-            logo: "/images/Astro.svg"
+            logo: "images/Astro.svg"
         },
         {
             name: "Nuxt JS",
-            logo: "/images/Nuxt_JS.svg"
+            logo: "images/Nuxt_JS.svg"
         },
         {
             name: "Ionic",
-            logo: "/images/Ionic.svg"
+            logo: "images/Ionic.svg"
         },
         {
             name: "Tailwind CSS",
-            logo: "/images/tailwind.svg"
+            logo: "images/tailwind.svg"
         },
         {
             name: "Ant Design",
-            logo: "/images/AntDesign.svg"
+            logo: "images/AntDesign.svg"
         },
         {
             name: "Bootstrap",
-            logo: "/images/Bootstrap.svg",
+            logo: "images/Bootstrap.svg",
             brightnessFilter: true
         },
         {
             name: "Redux",
-            logo: "/images/Redux.svg"
+            logo: "images/Redux.svg"
         },
         {
             name: "Git",
-            logo: "/images/Git.svg"
+            logo: "images/Git.svg"
         },
     ],
 
