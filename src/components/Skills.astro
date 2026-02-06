@@ -15,39 +15,3 @@ import SectionTitle from "./SectionTitle.astro";
         </div>
     </div>
 </section>
-
-<script>
-    // Intersection Observer for fade-in animation
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("fade-in-visible");
-            }
-        });
-    });
-
-    document.querySelectorAll(".skill-card").forEach((card) => {
-        card.classList.add("fade-in");
-        observer.observe(card);
-    });
-
-    // Scale animation on scroll
-    const scaleObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-
-                if (el instanceof HTMLElement) {
-                    if (!el.classList.contains("scale-animation-after")) {
-                        el.classList.add("scale-animation-after");
-                        el.style.transform = "scale(1)";
-                    }
-                }
-            }
-        });
-    });
-
-    document.querySelectorAll(".scale-animation-before").forEach((card) => {
-        scaleObserver.observe(card);
-    });
-</script>

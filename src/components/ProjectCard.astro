@@ -14,15 +14,9 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<div
-    class="card-project group relative overflow-hidden"
-    style="transform: scale(0.7); transition: transform 0.5s ease-in-out;"
->
+<div class="card-project overflow-hidden">
     <div class="mb-4 flex justify-between items-centers w-full">
-        <h3
-            class="project-title text-2xl font-bold italic"
-            style="font-family: 'Varela Round', sans-serif; color: var(--primary-color)"
-        >
+        <h3 class="project-title text-2xl font-bold italic varela-font">
             {project.title}
         </h3>
         <span class="font-normal whitespace-nowrap">
@@ -32,7 +26,7 @@ const { project } = Astro.props;
                         src={`images/${tech}.svg`}
                         alt={tech}
                         class="w-8 h-8 object-contain inline-block mx-1"
-                        loading="lazy"
+                        loading="eager"
                     />
                 ))
             }
@@ -40,8 +34,7 @@ const { project } = Astro.props;
     </div>
 
     <p
-        class="project-description text-base font-semibold italic mb-6 text-gray-200"
-        style="font-family: 'Poppins', sans-serif;"
+        class="project-description text-base font-semibold italic mb-6 text-gray-200 varela-font"
     >
         {project.description}
     </p>
@@ -54,7 +47,7 @@ const { project } = Astro.props;
                     href={project.sourceCode}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn-primary"
+                    class="btn-primary varela-font font-semibold"
                 >
                     Source Code
                 </a>
@@ -66,7 +59,7 @@ const { project } = Astro.props;
                     href={project.liveDemo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="btn-primary"
+                    class="btn-primary varela-font font-semibold"
                 >
                     Live Demo
                 </a>
@@ -74,29 +67,3 @@ const { project } = Astro.props;
         }
     </div>
 </div>
-
-<style>
-    .scale-animation-before {
-        transform: scale(0.7);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .scale-animation-after {
-        transform: scale(1);
-        transform-origin: center;
-    }
-
-    .hover-effect {
-        aspect-ratio: 1 / 1;
-        bottom: 90%;
-        right: 15%;
-        min-height: 5%;
-        min-width: 5%;
-        background: var(--primary-color);
-        filter: brightness(0.8);
-    }
-
-    .group:hover .hover-effect {
-        transform: scale(50) !important;
-    }
-</style>

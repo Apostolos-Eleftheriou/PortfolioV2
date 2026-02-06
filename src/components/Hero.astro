@@ -11,23 +11,21 @@ import { portfolioData } from "../data/portfolio";
     </div>
 
     <div
-        class="container mx-auto max-w-5xl flex flex-col md:flex-row gap-20 items-center z-10 justify-center"
-        style="position: relative; padding: 140px 30px 100px 30px;"
+        class="container mx-auto max-w-5xl flex flex-col md:flex-row gap-20 items-center z-10 justify-center hero-inner"
     >
         <!-- Left side: Text -->
         <div class="text-white w-full md:w-auto">
             <h1
-                class="text-xl font-bold italic mb-6 drop-shadow-lg"
-                style="font-family: 'Varela Round', sans-serif; font-size: 21px;"
+                class="text-xl font-bold italic mb-6 drop-shadow-lg varela-font"
             >
                 Hey there!
                 <br />
                 I'm
-                <span class="typed-text text-3xl"> Apostolis. </span>
+                <span class="typed-text text-3xl"></span>
+                <span class="cursor">|</span>
             </h1>
             <p
-                class="text-lg font-bold italic leading-relaxed drop-shadow-lg"
-                style="font-family: 'Varela Round', sans-serif; font-size: 18px; line-height: 30px;"
+                class="text-lg font-bold italic leading-relaxed drop-shadow-lg varela-font"
             >
                 {portfolioData.tagline}
             </p>
@@ -39,7 +37,7 @@ import { portfolioData } from "../data/portfolio";
                 src={portfolioData.personalImage}
                 alt={portfolioData.name}
                 class="rounded-3xl shadow-2xl hero-image"
-                loading="lazy"
+                loading="eager"
             />
         </div>
     </div>
@@ -47,40 +45,48 @@ import { portfolioData } from "../data/portfolio";
 
 <script define:vars={{ portfolioData }}>
     const typedElement = document.querySelector(".typed-text");
-    if (typedElement) {
-        const phrases = portfolioData.typeTextPhrases;
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
 
-        function type() {
-            const currentPhrase = phrases[phraseIndex];
-            const typedChar = isDeleting
-                ? currentPhrase.substring(0, charIndex - 1)
-                : currentPhrase.substring(0, charIndex + 1);
+    if (!typedElement) return;
 
-            typedElement.textContent = typedChar;
+    const phrases = portfolioData.typeTextPhrases;
 
-            if (!isDeleting && charIndex === currentPhrase.length) {
-                isDeleting = true;
-                setTimeout(type, 1500);
-                return;
-            }
+    if (!Array.isArray(phrases) || phrases.length === 0) {
+        typedElement.textContent = portfolioData.name;
+        return;
+    }
 
-            if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-            }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        typedElement.textContent = phrases[0];
+        return;
+    }
 
-            if (isDeleting) {
-                charIndex--;
-            } else {
-                charIndex++;
-            }
+    const TYPING_SPEED = 60;
+    const DELETING_SPEED = 35;
+    const PAUSE_AFTER_TYPE = 1500;
 
-            setTimeout(type, isDeleting ? 30 : 50);
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+        typedElement.textContent = currentPhrase.slice(0, charIndex);
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            isDeleting = true;
+            setTimeout(type, PAUSE_AFTER_TYPE);
+            return;
         }
 
-        type();
+        if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+
+        charIndex += isDeleting ? -1 : 1;
+
+        setTimeout(type, isDeleting ? DELETING_SPEED : TYPING_SPEED);
     }
+
+    type();
 </script>

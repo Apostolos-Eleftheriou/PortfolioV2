@@ -6,7 +6,7 @@ import { portfolioData } from "../data/portfolio";
     <div
         class="bg-[#252525] rounded-lg p-8 text-center shadow-2xl custom-400 m-auto"
     >
-        <div class="flex justify-center shrink-0 mb-6">
+        <div class="flex justify-center mb-6 p-2">
             <img
                 src={portfolioData.personalImage}
                 alt={portfolioData.name}
@@ -14,18 +14,15 @@ import { portfolioData } from "../data/portfolio";
                 loading="lazy"
             />
         </div>
-        <p class="mb-2 text-xl" style="font-family: 'Poppins', sans-serif;">
+        <p class="mb-2 text-xl varela-font font-semibold">
             {portfolioData.name}
         </p>
-        <p
-            class="text-md font-semibold mb-8 text-[#646464]"
-            style="font-family: 'Poppins', sans-serif;"
-        >
+        <p class="text-md font-semibold mb-8 text-[#646464] varela-font">
             {portfolioData.title} @{portfolioData.company}
         </p>
         <p
             id="contactBtn"
-            class="inline-block px-8 py-4 rounded-lg font-bold text-lg italic cme cursor-pointer"
+            class="inline-block px-8 py-4 rounded-lg font-bold text-lg italic cme cursor-pointer varela-font"
         >
             Let's get in touch!
         </p>
@@ -33,24 +30,23 @@ import { portfolioData } from "../data/portfolio";
             <a
                 href={portfolioData.resumeLink}
                 target="_blank"
-                class="inline-block px-8 py-4 rounded-lg font-bold text-lg italic cursor-pointer text-right hover:text-gray-400"
-                style="font-family:'Poppins', sans-serif"
+                class="inline-block px-8 py-4 rounded-lg font-bold text-lg italic cursor-pointer text-right hover:text-gray-400 varela-font"
                 >View Full Resume
                 <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
             </a>
         </p>
         <div>
-            <p class="text-gray-400 mb-6 font-semibold">
+            <p class="text-gray-400 mb-6 font-semibold varela-font">
                 Connect with me on social media:
             </p>
-            <div class="flex gap-6 justify-center contact">
+            <div class="flex gap-2 justify-center contact">
                 {
                     portfolioData.socials.map((social) => (
                         <a
                             href={social.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="text-white text-3xl transition-all duration-300"
+                            class="text-white text-3xl transition-all duration-300 p-2"
                             style="display: inline-block;"
                             title={social.name}
                         >

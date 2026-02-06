@@ -3,17 +3,14 @@ import { portfolioData } from "../data/portfolio";
 import SectionTitle from "./SectionTitle.astro";
 ---
 
-<section id="about" class="bg-gray-100 py-16 px-10 text-gray-900">
+<section id="about">
     <div class="container mx-auto max-w-3xl">
         <SectionTitle title="A few words about myself" class="text-black" />
 
-        <div class="mt-8 space-y-6">
+        <div class="mt-8">
             {
                 portfolioData.bio.map((paragraph) => (
-                    <p
-                        class="text-lg font-bold italic leading-8 text-gray-800 fade-in mb-4"
-                        style="font-family: 'Varela Round', sans-serif;"
-                    >
+                    <p class="text-lg font-bold italic leading-8 text-gray-800 fade-in mb-4 varela-font">
                         {paragraph}
                     </p>
                 ))
@@ -21,30 +18,3 @@ import SectionTitle from "./SectionTitle.astro";
         </div>
     </div>
 </section>
-
-<script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("fade-in-visible");
-            } else {
-                entry.target.classList.remove("fade-in-visible");
-            }
-        });
-    });
-
-    document.querySelectorAll(".fade-in").forEach((el) => {
-        observer.observe(el);
-    });
-</script>
-
-<style>
-    .fade-in {
-        opacity: 0;
-        transition: opacity 0.6s ease-in-out;
-    }
-
-    .fade-in-visible {
-        opacity: 1;
-    }
-</style>

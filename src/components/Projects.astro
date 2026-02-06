@@ -31,17 +31,6 @@ import SectionTitle from "./SectionTitle.astro";
 </section>
 
 <script>
-    // Fade in animation
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("fade-in-visible");
-            } else {
-                entry.target.classList.remove("fade-in-visible");
-            }
-        });
-    });
-
     const scaleObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             const target = entry.target;
@@ -49,31 +38,12 @@ import SectionTitle from "./SectionTitle.astro";
             if (entry.isIntersecting && target instanceof HTMLElement) {
                 if (!target.classList.contains("scale-animation-after")) {
                     target.classList.add("scale-animation-after");
-                    target.style.transform = "scale(1)";
                 }
             }
         });
     });
 
     document.querySelectorAll(".card-project").forEach((card) => {
-        card.classList.add("fade-in");
-        observer.observe(card);
         scaleObserver.observe(card);
     });
 </script>
-
-<style>
-    .fade-in {
-        opacity: 0;
-        transition: opacity 0.6s ease-in-out;
-    }
-
-    .fade-in-visible {
-        opacity: 1 !important;
-    }
-
-    .scale-animation-after {
-        transform: scale(1) !important;
-        transform-origin: center;
-    }
-</style>

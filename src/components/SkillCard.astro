@@ -10,36 +10,16 @@ interface Props {
 const { skill } = Astro.props;
 ---
 
-<div
-    class="skill-card flex flex-col items-center justify-center bg-zinc-900 bg-opacity-40 p-6 rounded-2xl transition-all duration-300 scale-animation-before"
->
+<div class="skill-card">
     <div class="w-full p-3 flex justify-center items-center h-20">
         <img
             src={skill.logo}
             alt={skill.name}
             class={`w-full h-full object-contain ${skill.brightnessFilter ? "brightness-150" : ""}`}
-            loading="lazy"
+            loading="eager"
         />
     </div>
-    <div
-        class="text-white text-center font-semibold text-xs"
-        style="font-family: 'Poppins', sans-serif; margin-top: auto;"
-    >
+    <div class="text-white text-center font-semibold text-sm varela-font">
         {skill.name}
     </div>
 </div>
-
-<style>
-    .skill-card:hover {
-        transform: scale(1.1);
-    }
-
-    .scale-animation-before {
-        transition: transform 1s ease-in-out;
-    }
-
-    .scale-animation-after {
-        transform: scale(1);
-        transform-origin: center;
-    }
-</style>

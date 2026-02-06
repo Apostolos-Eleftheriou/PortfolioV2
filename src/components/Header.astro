@@ -12,16 +12,15 @@ import { portfolioData } from "../data/portfolio";
     </button>
 
     <nav id="nav-menu">
-        <a href="#skills">What I'm working with</a>
-        <a href="#about">About me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact me</a>
-
-        <div
-            class="flex justify-center gap-5 theme py-3"
-            style=" border-top: 1px solid #555; border-bottom: 1px solid #555;"
+        <a href="#skills" class="varela-font font-semibold"
+            >What I'm working with</a
         >
-            <div class="font-bold text-center">Themes:</div>
+        <a href="#about" class="varela-font font-semibold">About me</a>
+        <a href="#projects" class="varela-font font-semibold">Projects</a>
+        <a href="#contact" class="varela-font font-semibold">Contact me</a>
+
+        <div class="flex justify-center gap-5 theme py-3">
+            <div class="font-bold text-center varela-font">Themes:</div>
             <div class="flex gap-2 justify-center">
                 {
                     portfolioData.theme.colors.map((theme) => (
@@ -44,7 +43,6 @@ import { portfolioData } from "../data/portfolio";
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style="font-size: 20px;"
                         title={social.name}
                     >
                         <i class={`fab fa-${social.icon}`} />
