@@ -28,16 +28,6 @@ html {
     font-family: 'Yellowtail', 'Poppins', sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 .hero-image {
     width: 300px;
     height: 300px;
@@ -238,12 +228,10 @@ nav a:hover {
     transform: scale(1.25) rotate(360deg);
 }
 
-/* Main Content */
 main {
     min-height: 100vh;
 }
 
-/* Hero Section */
 #hero {
     background-color: #2f3b4a;
     display: flex;
@@ -311,7 +299,6 @@ main {
     transform: scale(1.05);
 }
 
-/* Sections */
 section {
     padding: 40px 20px;
 }
@@ -321,10 +308,7 @@ section {
     font-size: 25px;
     font-weight: bold;
     font-style: italic;
-    /* text-shadow: 3px 2px 0px black; */
 }
-
-/* Skills Section */
 
 .skills-container {
     display: flex;
@@ -530,7 +514,6 @@ section {
     color: var(--primary-color);
 }
 
-/* Footer */
 footer {
     background-color: var(--bg-dark);
     color: var(--text-light);
@@ -555,7 +538,6 @@ footer a:hover {
     transform: rotate(360deg) scale(1.2);
 }
 
-/* Go to top button */
 #go-top-btn {
     position: fixed;
     bottom: 25px;
@@ -575,7 +557,6 @@ footer a:hover {
     transform: scale(1.1);
 }
 
-/* Scrollbar styles */
 *::-webkit-scrollbar {
     width: 4px;
     height: 4px;
