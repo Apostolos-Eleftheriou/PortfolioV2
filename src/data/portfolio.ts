@@ -95,7 +95,7 @@ export const portfolioData = {
         {
             id: 2,
             title: "Music Player",
-            description: "I made this fun little project for my baby son with great care, love and attention to detail so he can listen to his favorite songs without ads or delays.",
+            description: "I made this fun little project for my baby son with love and attention to detail so he can listen to his favorite songs without ads or delays.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/jason_music",
             liveDemo: "https://apostolos-eleftheriou.github.io/jason_music/",
             featured: true,
@@ -103,20 +103,20 @@ export const portfolioData = {
         },
         {
             id: 3,
-            title: "CRUD App",
-            description: "This project demonstrates data fetching from an API and CRUD operations using Vue JS, Tailwind and Pinia for state management. It also has filtering and local storage utilization to simulate a database and preserve Tasks on page reload.",
+            title: "Mini Tasks App",
+            description: "This project demonstrates user data fetching from a mock API and CRUD operations using Vue JS, Tailwind and Pinia for state management. It also has filtering and local storage utilization to simulate a database and preserve Tasks on page reload.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/pinia-first-project/tree/main/pinia-tasks",
             liveDemo: "https://pinia-crud.netlify.app/",
-            featured: false,
+            featured: true,
             technologies: ["vue", "tailwind"]
         },
         {
             id: 4,
-            title: "Simple E-Commerce Shop",
-            description: "This project demonstrates dynamic routing and navigation, data fetching from a mock store API in a fully responive store using Nuxt JS and Tailwind.",
+            title: "E-Commerce Demo",
+            description: "This project demonstrates Nuxt's file-system routing based on product id, data fetching from a mock store API and responsive design using Nuxt JS and Tailwind.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/nuxt-store-app",
             liveDemo: "https://nuxtstoredemo.netlify.app/",
-            featured: false,
+            featured: true,
             technologies: ["nuxt", "tailwind"]
         },
         {
@@ -131,28 +131,28 @@ export const portfolioData = {
         {
             id: 6,
             title: "Rock Paper Scissors",
-            description: "Play against the computer! Trying to win gets addicting after a while.",
+            description: "Play against the computer, gets really addicting after a while!",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/rock-paper-scissors",
             liveDemo: "https://apostolos-eleftheriou.github.io/rock-paper-scissors/",
-            featured: false,
+            featured: true,
             technologies: ["javascript"]
         },
         {
             id: 7,
             title: "Etch-A-Sketch",
-            description: "This project demonstrates my DOM manipulation skills, written in plain JavaScript. Try drawing something!",
+            description: "This project demonstrates my DOM manipulation skills, written in plain JavaScript. Have some fun with it!",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/etch-a-sketch",
             liveDemo: "https://apostolos-eleftheriou.github.io/etch-a-sketch/",
-            featured: false,
+            featured: true,
             technologies: ["javascript"]
         },
         {
             id: 8,
-            title: "Custom Datatable Sorting",
-            description: "This project demonstrates data sorting in a datatable using Vue JS.",
+            title: "Custom Datatable Filtering",
+            description: "This project demonstrates data filtering in a custom datatable using Vue JS.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/Vue-Learning",
             liveDemo: "https://apostolos-eleftheriou.github.io/Vue-Learning/",
-            featured: false,
+            featured: true,
             technologies: ["vue", "tailwind"]
         },
         {
@@ -161,7 +161,7 @@ export const portfolioData = {
             description: "The portfolio source code written in Astro.",
             sourceCode: "https://github.com/Apostolos-Eleftheriou/PortfolioV2",
             liveDemo: "",
-            featured: false,
+            featured: true,
             technologies: ["astro", "tailwind"]
         },
     ],
