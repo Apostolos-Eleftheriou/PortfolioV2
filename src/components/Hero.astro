@@ -20,7 +20,7 @@ import { portfolioData } from "../data/portfolio";
             >
                 Hey there!
                 <br />
-                I'm
+                I'm&nbsp;
                 <span class="typed-text text-3xl"></span>
                 <span class="cursor">|</span>
             </h1>
@@ -44,49 +44,51 @@ import { portfolioData } from "../data/portfolio";
 </section>
 
 <script define:vars={{ portfolioData }}>
-    const typedElement = document.querySelector(".typed-text");
+    (() => {
+        const typedElement = document.querySelector(".typed-text");
 
-    if (!typedElement) return;
+        if (!typedElement) return;
 
-    const phrases = portfolioData.typeTextPhrases;
+        const phrases = portfolioData.typeTextPhrases;
 
-    if (!Array.isArray(phrases) || phrases.length === 0) {
-        typedElement.textContent = portfolioData.name;
-        return;
-    }
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        typedElement.textContent = phrases[0];
-        return;
-    }
-
-    const TYPING_SPEED = 60;
-    const DELETING_SPEED = 35;
-    const PAUSE_AFTER_TYPE = 1500;
-
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-        const currentPhrase = phrases[phraseIndex];
-        typedElement.textContent = currentPhrase.slice(0, charIndex);
-
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            isDeleting = true;
-            setTimeout(type, PAUSE_AFTER_TYPE);
+        if (!Array.isArray(phrases) || phrases.length === 0) {
+            typedElement.textContent = portfolioData.name;
             return;
         }
 
-        if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            typedElement.textContent = phrases[0];
+            return;
         }
 
-        charIndex += isDeleting ? -1 : 1;
+        const TYPING_SPEED = 60;
+        const DELETING_SPEED = 35;
+        const PAUSE_AFTER_TYPE = 1500;
 
-        setTimeout(type, isDeleting ? DELETING_SPEED : TYPING_SPEED);
-    }
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-    type();
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            typedElement.textContent = currentPhrase.slice(0, charIndex);
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(type, PAUSE_AFTER_TYPE);
+                return;
+            }
+
+            if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+
+            charIndex += isDeleting ? -1 : 1;
+
+            setTimeout(type, isDeleting ? DELETING_SPEED : TYPING_SPEED);
+        }
+
+        type();
+    })();
 </script>
